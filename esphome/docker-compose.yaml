@@ -6,7 +6,7 @@ services:
     volumes:
       - esphome-data:/config
     ports:
-      - 6052:6052 #optional
+      - 6052:6052
     restart: unless-stopped
 volumes:
   esphome-data:
