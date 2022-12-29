@@ -13,3 +13,5 @@ services:
     ports:
       - 8123:8123 #optional
     restart: unless-stopped
+volumes:
+  home-assistant-data:
