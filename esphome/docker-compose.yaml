@@ -1,0 +1,12 @@
+version: "2.1"
+services:
+  esphome:
+    image: esphome/esphome:latest
+    container_name: esphome
+    volumes:
+      - esphome-data:/config
+    ports:
+      - 8123:8123 #optional
+    restart: unless-stopped
+volumes:
+  esphome-data:
