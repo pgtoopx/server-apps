@@ -30,7 +30,7 @@ services:
       volumes:
         - esphome-data:/config
       ports:
-        - 8123:8123
+        - 6052:6052
       restart: unless-stopped
   homeassistant:
       image: lscr.io/linuxserver/homeassistant:latest
