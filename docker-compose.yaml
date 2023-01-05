@@ -1,0 +1,47 @@
+version: "2.1"
+
+services:
+  reverse-proxy:
+    image: nginx
+    container_name: reverse-proxy
+    volumes:
+      - reverse-proxy/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 80:80
+  codeserver:
+    image: lscr.io/linuxserver/code-server:latest
+    container_name: codeserver
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Santiago
+      - PASSWORD=buitres2804
+      - SUDO_PASSWORD=buitres2804
+      - DEFAULT_WORKSPACE=/config/workspace
+    volumes:
+      - /home/pgtoopx:/config/workspace
+      - code-server-config:/config
+    restart: unless-stopped
+  esphome:
+      image: esphome/esphome:latest
+      container_name: esphome
+      volumes:
+        - esphome-data:/config
+      restart: unless-stopped
+  homeassistant:
+      image: lscr.io/linuxserver/homeassistant:latest
+      container_name: homeassistant
+      environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=America/Santiago
+      volumes:
+        - home-assistant-data:/config
+      restart: unless-stopped
+
+
+
+volumes:
+  code-server-config:
+  esphome-data:
+  home-assistant-data:
