@@ -44,7 +44,14 @@ services:
       volumes:
         - home-assistant-data:/config
       restart: unless-stopped
-
+  resilio-sync:
+      image: resilio/sync
+      container_name: resilio-sync
+      ports:
+        - 8888:8888 
+      restart: unless-stopped
+      volumes: 
+        - /home/pgtoopx/media/resilio-sync:/mnt/sync
 
 
 volumes:
