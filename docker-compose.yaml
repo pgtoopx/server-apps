@@ -18,6 +18,8 @@ services:
       - PASSWORD=buitres2804
       - SUDO_PASSWORD=buitres2804
       - DEFAULT_WORKSPACE=/config/workspace
+    ports:
+      - 8443:8443
     volumes:
       - /home/pgtoopx:/config/workspace
       - code-server-config:/config
@@ -27,6 +29,8 @@ services:
       container_name: esphome
       volumes:
         - esphome-data:/config
+      ports:
+        - 8123:8123
       restart: unless-stopped
   homeassistant:
       image: lscr.io/linuxserver/homeassistant:latest
@@ -35,6 +39,8 @@ services:
         - PUID=1000
         - PGID=1000
         - TZ=America/Santiago
+      ports:
+        - 8123:8123
       volumes:
         - home-assistant-data:/config
       restart: unless-stopped
