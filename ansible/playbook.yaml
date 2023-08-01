@@ -16,22 +16,15 @@
         state: present
 
     - name: Instalar Brew
-      become_user: tu_usuario # Reemplaza 'tu_usuario' con tu nombre de usuario
       shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     - name: Instalar Tailscale
-      become_user: tu_usuario # Reemplaza 'tu_usuario' con tu nombre de usuario
-      shell: curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/tailscale.gpg
-             curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.list | sudo tee /etc/apt/sources.list.d/tailscale.list
-             sudo apt update
-             sudo apt install tailscale
+      shell: curl -fsSL https://tailscale.com/install.sh | sh
 
     - name: Instalar k3s
-      become_user: tu_usuario # Reemplaza 'tu_usuario' con tu nombre de usuario
       shell: curl -sfL https://get.k3s.io | sh -
 
     - name: Instalar k9s
-      become_user: tu_usuario # Reemplaza 'tu_usuario' con tu nombre de usuario
       shell: curl -LO "https://github.com/derailed/k9s/releases/download/v0.24.7/k9s_Linux_x86_64.tar.gz"
              tar xf k9s_Linux_x86_64.tar.gz
              sudo mv k9s /usr/local/bin/
