@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Función para mostrar el log de error en caso de falla
 function show_error_log {
