@@ -1,0 +1,2 @@
+curl -o install.sh https://raw.githubusercontent.com/pgtoopx/server-apps/main/ansible/install.sh && bash install.sh
+curl -fsSL https://raw.githubusercontent.com/pgtoopx/server-apps/main/ansible/install.sh | sh
