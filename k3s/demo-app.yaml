@@ -34,9 +34,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: k3s-demo
-  annotations:
-    kubernetes.io/ingress.class: "traefik"
 spec:
+  ingressClassName: traefik
   rules:
   - http:
       paths:
