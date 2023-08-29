@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: k3s-demo
@@ -30,7 +30,7 @@ spec:
   selector:
     app: k3s-demo
 ---
-apiVersion: v1
+apiVersion: apps/v1
 kind: Ingress
 metadata:
   name: k3s-demo
