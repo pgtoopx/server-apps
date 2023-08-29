@@ -36,12 +36,14 @@ metadata:
   name: k3s-demo
   annotations:
     kubernetes.io/ingress.class: "traefik"
-
 spec:
   rules:
   - http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: k3s-demo
-          servicePort: http
+          service:
+            name: k3s-demo
+            port:
+              number: 80
